@@ -246,8 +246,8 @@ img.icon:hover {
 }
 
 .portfolio-thumb {
-  width: 45%;
-  margin: 20px;
+  width: 82%;
+  margin: 10px;
   background-color: white;
   display: inline-block;
   /*//height: 500px;*/
@@ -259,19 +259,19 @@ img.icon:hover {
 
 .portfolio-thumb p {
   font-size: 14px;
-  padding: 25px;
-  padding-top: 0px;
+  padding: 12px;
   text-align: left;
-  line-height: 24px;
+  line-height: 20px;
 }
 
 .portfolio-thumb a {
   text-decoration: underline;
 }
 
-.portfolio-big {
-  width: 95%;
- /* height: 680px;*/
+.project-description {
+  font-size:14px;
+  text-align: justify;
+  margin-right:15px;
 }
 
 #footer{
