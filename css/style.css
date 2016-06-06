@@ -100,7 +100,7 @@ a img {
 #about {
 /*  background-color: #D57878;*/
   background-color: #C26868;
-  height: 1020px;
+  height: 920px;
   margin-top:-30px;
 }
 
@@ -112,7 +112,7 @@ a img {
   padding-top:15px;
   font-size:30px;
   background: #ccc;
-  height: 700px;
+  height: 550px;
   font-family: 'Monaco', 'Courier New';
   text-align: left;
   font-size:13px;
@@ -122,7 +122,7 @@ a img {
 #console {
   width:670px;
   padding: 40px;
-  height: 620px;
+  height: 500px;
   margin:0 auto;
   background: #383737;
 }
