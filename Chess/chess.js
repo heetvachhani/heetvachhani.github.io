@@ -1,5 +1,21 @@
 function Chess() {
-        this.init();
+  this.init();
+  var table=document.getElementById("chessBoard");
+
+  // add id and make all cell draggable
+  for (var i = 0; i < table.rows.length; i++) {
+    for (var j = 0; j < table.rows[i].cells.length; j++){
+        var id = "r"+ i +"c"+j;
+        table.rows[i].cells[j].draggable=true;
+        table.rows[i].cells[j].id =id;
+        table.rows[i].cells[j].ondragover= function (event) {
+           event.preventDefault();
+        };
+        table.rows[i].cells[j].addEventListener('dragstart', handleDragStart, false);
+        table.rows[i].cells[j].addEventListener('drop', handleDrop, false);
+    }
+  }
+
 }
 
 Chess.prototype.getCurrentState = function() {
@@ -42,12 +58,12 @@ Chess.prototype.isValidTurn = function(x, y) {
   var state = this.getCurrentState();
 
   if(!state.validPieceSelected) return false;
-    
-    var checkEdges = (x >= 0 && y >= 0 && x <= 7 && y <= 7 &&
-           state.currentBoard[x][y] === null) ? true : false;
+  
+  //check move is not outside the board and board current position is empty  
+  var checkEdges = (x >= 0 && y >= 0 && x <= 7 && y <= 7 && state.currentBoard[x][y] === null) ? true : false;
   
     // checking for valid moves for various piece
-    var checkMove = function(){
+  var checkMove = function(){
       var selectedPiece = state.selectedPiece;
       var selectedPieceLocation = state.selectedPieceLocation;
       var currentBoard =state.currentBoard;
@@ -94,46 +110,46 @@ Chess.prototype.isValidTurn = function(x, y) {
       }
       
       function isValidRook(){
-        if (y == oldy && x!=oldx) {
-          if(x>oldx){
-          for(var i=oldx+1;i<=x; i++){
-            if(state.activePlayer == 'w'){
-              if(currentBoard[7-i][oldy]!=null) return false;
+        if (y == oldy && x!=oldx) { //check vertical
+           if(x>oldx){
+            for(var i=oldx+1;i<=x; i++){
+              if(state.activePlayer == 'w'){
+                if(currentBoard[7-i][oldy]!=null) return false;
+              }
+              else if(currentBoard[i][oldy]!=null) return false;
+             }
+             return true;
+           }
+           else if(x<oldx){
+            for(var i=oldx-1;i>=x; i--){
+              if(state.activePlayer=='w'){
+                if(currentBoard[7-i][oldy]!=null) return false;
+              }
+              else if(currentBoard[i][oldy]!=null) return false;
             }
-            else if(currentBoard[i][oldy]!=null) return false;
-          }
-          return true;
-          }
-          else if(x<oldx){
-          for(var i=oldx-1;i>=x; i--){
-            if(state.activePlayer=='w'){
-              if(currentBoard[7-i][oldy]!=null) return false;
+            return true;
             }
-            else if(currentBoard[i][oldy]!=null) return false;
-          }
-          return true;
-          }
         }
-        else if (y != oldy && x==oldx) {
-          if(y>oldy){
-          for(var i=oldy+1;i<=y; i++){
-            if (state.activePlayer=='w'){
-              if (currentBoard[tmpOldx][i]!=null)  return false;
-            }
-            else if(currentBoard[oldx][i]!=null) return false;
+        else if (y != oldy && x==oldx) { // check horizontal
+            if(y>oldy){
+             for(var i=oldy+1;i<=y; i++){
+              if (state.activePlayer=='w'){
+                if (currentBoard[tmpOldx][i]!=null)  return false;
+              }
+              else if(currentBoard[oldx][i]!=null) return false;
 
-          }
-          return true;
-          }
-          else if(y<oldy){
-          for(var i=oldy-1;i>=y; i--){
-            if (state.activePlayer=='w') {
-              if(currentBoard[tmpOldx][i]!=null)  return false;
+             }
+             return true;
             }
-            if(currentBoard[oldx][i]!=null) return false;
-          }
-          return true;
-          }
+            else if(y<oldy){
+             for(var i=oldy-1;i>=y; i--){
+              if (state.activePlayer=='w') {
+                if(currentBoard[tmpOldx][i]!=null)  return false;
+              }
+              if(currentBoard[oldx][i]!=null) return false;
+             }
+             return true;
+            }
         }
         else return false;
       }
@@ -171,13 +187,13 @@ Chess.prototype.isValidTurn = function(x, y) {
         return isValidBishop() || isValidRook();
       }
       return true;
-    }
+  }
 
-    if(!checkEdges || !checkMove()) {
-       return false;
-    }
+  if(!checkEdges || !checkMove()) {
+     return false;
+  }
 
-    return true;
+  return true;
 };
 
 Chess.prototype.moveStarted = function(x,y, pieceValue) {
@@ -206,7 +222,7 @@ Chess.prototype.updatedBoard = function(x,y) {
         for (var i = 0; i < currentBoard.length; i++) {
             newBoard.push(currentBoard[i].concat());
         }
-        // make old location null and uupdate new one with piece value
+        // make old location null and update new one with piece value
         newBoard[oldx][oldy]=null;
         newBoard[x][y] = state.selectedPiece;
         return newBoard;
@@ -216,7 +232,6 @@ Chess.prototype.updatedBoard = function(x,y) {
 Chess.prototype.takeTurn = function(x, y) {
        var state = this.getCurrentState();
        var newState = this.getCurrentState();
-       var selectedPiece = state.selectedPiece;
        var valid = false;    
        if(this.isValidTurn(x, y)) {
                 var newState = {
@@ -288,21 +303,7 @@ function getRandomInt(min, max) {
 
 var chess = new Chess();
 
-var table=document.getElementById("chessBoard");
 var dragSrcEl =null;
-for (var i = 0; i < table.rows.length; i++) {
-     for (var j = 0; j < table.rows[i].cells.length; j++){
-        var id = "r"+ i +"c"+j;
-        table.rows[i].cells[j].draggable=true;
-        table.rows[i].cells[j].id =id;
-        table.rows[i].cells[j].ondragover= function (event) {
-           event.preventDefault();
-        };
-        table.rows[i].cells[j].addEventListener('dragstart', handleDragStart, false);
-        table.rows[i].cells[j].addEventListener('drop', handleDrop, false);
-     }
-}
-
 
 function generateRandomMove(){
   chess.randomMove();
@@ -314,10 +315,11 @@ function handleDragStart(e) {
   else {
     //getting value code of cell
     var encodedStr = this.innerText.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
-      return '&#'+i.charCodeAt(0)+';';
+      return i.charCodeAt(0);
     });
+    
     var loc = this.id.match(/\d+/g);
-    chess.moveStarted(parseInt(loc[0]), parseInt(loc[1]), parseInt(encodedStr.replace(/\D/g, '')));
+    chess.moveStarted(parseInt(loc[0]), parseInt(loc[1]), parseInt(encodedStr));
     event.dataTransfer.setData("text/html", this.innerHTML);
   }
 }
@@ -326,7 +328,7 @@ function handleDrop(ev) {
   var loc = this.id.match(/\d+/g);
   var result = chess.takeTurn(parseInt(loc[0]), parseInt(loc[1]));
   var currentMove = document.getElementById("currentTurn");
-  console.log(result);
+  //console.log(result);
   if (dragSrcEl != this && result.valid) {
     dragSrcEl.innerHTML = this.innerHTML;
     if(result.moveBy === 'b' ) currentMove.innerHTML =" Move made by Black, now White's turn!";
