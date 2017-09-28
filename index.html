@@ -59,14 +59,14 @@
 					<div id="code">
 						<div id="console">
 							&gt; Hit.current<br/>
-							<span class="answer">&nbsp;&nbsp;=&gt; "Dallas, TX"<br/><br/></span>
+							<span class="answer">&nbsp;&nbsp;=&gt; "Software Engineer at Verizon"<br/><br/></span>
 							&gt; Hit.education<br/>
 							<span class="answer">&nbsp;&nbsp;=&gt; "University of Texas at Dallas"<br/><br/></span>
 							&gt; Hit.major<br/>
 							<span class="answer">&nbsp;&nbsp;=&gt; "Computer Science"<br/><br/></span>
 							&gt; Hit.gpa<br/>
-							<span class="answer">&nbsp;&nbsp;=&gt; "3.50"<br/><br/></span>
-							&gt; Hit.expectedGraduation<br/>
+							<span class="answer">&nbsp;&nbsp;=&gt; "3.57"<br/><br/></span>
+							&gt; Hit.Graduated<br/>
 							<span class="answer">&nbsp;&nbsp;=&gt; "December 2016"<br/><br/></span>
 							&gt; Hit.interests<br/>
 							<span class="answer">&nbsp;&nbsp;=&gt; ["Maching Learning", "ProblemSolving", "Music", "Coffee", "Hiking"]<br/><br/></span>
@@ -87,8 +87,8 @@
 				<!-- Resume : Education : UTD -->
 				<p>
 					<a target="_blank" href="http://utdallas.edu"><img class="icon" src="img/companies/utd.jpg"></a><b>Master of Science in Computer Science</b>
-					<span class="right"><i>Expected December 2016</i></span><br/><b>The University Of Texas at Dallas, Richardson, TX</b>
-					<span class="right"><i>GPA: 3.50</i></span><br/><br/>
+					<span class="right"><i>December 2016</i></span><br/><b>The University Of Texas at Dallas, Richardson, TX</b>
+					<span class="right"><i>GPA: 3.57</i></span><br/><br/>
 						Relevant Coursework:<br/>
 						<ul style="list-style:circle;">
 									<li>Big Data</li>
@@ -118,6 +118,20 @@
 				<br/>
 				<p class="section-tagline" style="text-align:left;">Work EXPERIENCE</p>
 				<!-- Resume : Education : UTD -->
+				<p>
+					<a target="_blank" href="https://www.verizon.com/home/fiostv"><img class="icon" src="img/companies/verizon.jpg"></a><b>Software Engineer Contractor</b>
+					<span class="right"><i>March 2017 - Current</i></span><br/><b>Verizon, Irving, TX</b>
+					<br/><ul class="project-description" style="list-style:circle;">
+							<li>Part of “Search and Metadata” team working on FIOS IPTV app, responsible for development of web services and distribution of end points</li>
+							<li>Design various end-points, working on metadata ingestion and pre-processing, automate smoke test suite via Jenkins job along with various Chronos jobs to run validation scripts</li>
+							<li>Enhanced the quality of voice search by designing relevancy algorithm and created UI in PHP to get feedback from product team and measure various relevancy matrix like precision, recall, F measure and MRR</li>
+						</ul>
+
+					<span class="skill">Scala</span><span class="skill">Java</span><span class="skill">JUnit</span><span class="skill">ElasticSearch</span><span class="skill">MongoDB</span><span class="skill">Git</span><span class="skill">Jenkins</span><span class="skill">JIRA</span> <span class="skill">Confluence</span><span class="skill">Chronos</span>
+				</p>
+				
+				<br/>
+
 				<p>
 					<a target="_blank" href="https://www.call-em-all.com"><img class="icon" src="img/companies/callemall.jpg"></a><b>Full Stack Engineer Intern</b>
 					<span class="right"><i>January 2016 - May 2016</i></span><br/><b>Call-Em-All, Frisco, TX</b>
@@ -249,11 +263,19 @@ interaction leading to advanced experience</li>
 			<p class="tagline">Projects</p>	
 				<div class="row">
 					<div class="portfolio-thumb">
-						<p ><b>Internet of Things – Cloud Computing(Team of 4)</b></p>
+						<p ><b>Internet of Things – Cloud Computing</b></p>
 						<ul class="project-description">
 							<li>Deployed an IOT application using inputs from Raspberry Pi 3, AWS PaaS and IBM Bluemix SaaS service</li>
 							<li>Used Python to connect with Pi along with Twilio service in Bluemix to send notifications to phone</li>
 							<li><b><i>Technology used: </i></b>Python, Raspberry Pi, Twillio API, AWS, IBM Bluemix</li>
+						</ul>
+					</div>
+					<div class="portfolio-thumb">
+						<p class="description"><b>Website Fingerprinting</b></p>
+						<ul class="project-description">
+							<li>Proved privacy browsing (e.g. Tor browser) technologies such as VPNs, SSH, IPsec are also vulnerable to attack</li>
+							<li>Fetch real time data using Kafka, consume that data using Spark Streaming library and train model using Naive Bayesian Classifier to Predict class of test data and state accuracy of model</li> 
+							<li><b><i>Technology used: </i></b>Apache Kafka, Spark-Streaming library, Scala, Java</li>
 						</ul>
 					</div>
 					<div class="portfolio-thumb">
@@ -264,15 +286,27 @@ interaction leading to advanced experience</li>
 							<li><b><i>Technology used: </i></b>JAVA, R, K-means Clustering, Weka(for testing)</li>
 						</ul>
 					</div>
+					<div class="portfolio-thumb">
+						<p class="description"><b>Online Candy Store</b></p>
+						<ul class="project-description">
+							<li>Hosted online candy store on AWS EC2 to handle functionalities like online order, search, and inventory management</li>
+							<li>Front-End using React, Material-UI, Back-End using Node, Express and Mongoose model for database CRUD operations</li>
+							<li><b><i>Technology used: </i></b>JReactJS, Material-UI, MongoDB, Mongoose, Express, Node, AWS EC2</li>
+						</ul>
+					</div>
 				</div>				
 				<div class="row">
 					<div class="portfolio-thumb">
-						<p class="description"><b>Website Fingerprinting (Team of 4)</b></p>
-						<ul class="project-description">
-							<li>Proved privacy browsing (e.g. Tor browser) technologies such as VPNs, SSH, IPsec are also vulnerable to attack</li>
-							<li>Fetch real time data using Kafka, consume that data using Spark Streaming library and train model using Naive Bayesian Classifier to Predict class of test data and state accuracy of model</li> 
-							<li><b><i>Technology used: </i></b>Apache Kafka, Spark-Streaming library, Scala, Java</li>
-						</ul>
+							<p class="description"><b>Yelp Data Analysis</b></p>
+							<ul class="project-description"><li>Implemented MapReduce, created recommendation system using item-item & user-user similarity</li>
+							<li>Constructed Hive and Pig-Latin scripts to load and retrieve data from HDFS and performed data processing on dataset</li>
+							<li><b><i>Technology used: </i></b>Hive, Pig, Cassandra, Apache Mahout</li></ul>
+					</div>
+					<div class="portfolio-thumb">
+							<p class="description"><b>Walk n' Talk (HackUTD Hackathon)</b></p>
+							<ul class="project-description"><li>Designed an application to convert sign language to text and speech for differently abled individual</li>
+							<li>Myo Armband and Leap motion to detect hand signs, speech using Bluemix TTS API, results displayed in Android app</li>
+							<li><b><i>Technology used: </i></b>Java, Spring MVC, IBM Bluemix (Text to Speech), React Native</li></ul>
 					</div>
 					<div class="portfolio-thumb">
 							<p class="description"><b>Intelligent Drone based Delivery System </b></p>
@@ -283,14 +317,14 @@ interaction leading to advanced experience</li>
 				</div>						
 				<div class="row">
 					<div class="portfolio-thumb">
-						<p class="description"><b>Smart Parking System (Team of 4)</b></p>
+						<p class="description"><b>Smart Parking System</b></p>
 						<ul class="project-description">
 							<li>Constructed UML diagrams, applied various designed pattern, Agile methodology for system design</li>
 							<li>Designed Front-End using React and Material-Ui and developed back end using Spring MVC RESTFul Web services</li>
 							<li><b><i>Technology used: </i></b>Java, SpringMVC, ReactJS, Material-UI, MySQL</li></ul>
 					</div>
 					<div class="portfolio-thumb">
-						<p class="description"><b>Library automation using RFID technology (Team of 3)</b></p>
+						<p class="description"><b>Library automation using RFID technology</b></p>
 						<ul class="project-description"><li>Designed database and web application that can perform all library management operation</li>
 						<li>Developed standalone application to identify misplaced book in library using BOT</li>
 						<li><b><i>Technology used: </i></b>C#.Net Framework, SQL DATABASE, HTML5, CSS3, PYTHON(for hardware)</li></ul>
@@ -314,6 +348,7 @@ interaction leading to advanced experience</li>
 					<a target="_blank" href="Resume.pdf">Resume</a>&nbsp;//&nbsp;
 					<a target="_blank" href="mailto:heet_vachhani@outlook.com">Email</a>&nbsp;//&nbsp;
 					<a target="_blank" href="https://www.linkedin.com/in/heetvachhani">LinkedIn</a>&nbsp;//&nbsp;
+					<a target="_blank" href="https://github.com/heetvachhani">Github</a>&nbsp;//&nbsp;
 				</span>
 			</div></div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
